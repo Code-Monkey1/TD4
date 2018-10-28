@@ -18,3 +18,20 @@ bool UtilisateurRegulier::getPossedeGroupe() const {
 void UtilisateurRegulier::setPossedeGroupe(bool possedeGroupe) {
 	possedeGroupe_ = possedeGroupe;
 }
+
+void UtilisateurRegulier::print(ostream & os) const
+{
+	os << "- Utilisateur (regulier, ";
+
+	if (possedeGroupe_) { os << "dans un groupe) "; }
+	else { os << "pas dans un groupe) "; }
+	
+	os << nom_ << " :" << endl
+		<< "\t Total a payer: " << balanceTransferts_ << "$ (" << balanceFrais_ << "$ de frais)" << endl
+		<< "Depenses :" << endl;
+	for (unsigned i = 0; i < depenses_.size(); i++)
+	{
+		os << *depenses_[i];
+	}
+
+}

@@ -19,3 +19,15 @@ unsigned int UtilisateurPremium::getJoursRestants() const {
 void UtilisateurPremium::setJoursRestants(unsigned int joursRestants) {
 	joursRestants_ = joursRestants;
 }
+
+void UtilisateurPremium::print(ostream & os) const
+{
+	os << "- Utilisateur (premium) " << nom_ << " :" << endl
+		<< "\t Total a payer: " << balanceTransferts_ << "$ (" << balanceFrais_ << "$ de frais)" << endl
+		<< "Jours restants: " << joursRestants_ << endl
+		<< "Depenses :" << endl;
+	for (unsigned i = 0; i < depenses_.size(); i++)
+	{
+		os << *depenses_[i];
+	}
+}

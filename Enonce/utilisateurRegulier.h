@@ -23,7 +23,7 @@ public :
 		
 	//Affichage
 	// TODO
-	void print(ostream& os) const;
+	virtual void print(ostream& os) const;
 
 private :
 	bool possedeGroupe_; 

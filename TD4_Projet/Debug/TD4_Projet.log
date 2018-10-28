@@ -1,4 +1,11 @@
-﻿  main.cpp
+﻿  groupe.cpp
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\groupe.cpp(45): warning C4018: '<' : incompatibilité signed/unsigned
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\groupe.cpp(67): warning C4018: '<' : incompatibilité signed/unsigned
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\groupe.cpp(95): warning C4018: '>=' : incompatibilité signed/unsigned
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\groupe.cpp(106): warning C4018: '<' : incompatibilité signed/unsigned
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\groupe.cpp(113): warning C4018: '<' : incompatibilité signed/unsigned
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\groupe.cpp(118): warning C4018: '<' : incompatibilité signed/unsigned
+  main.cpp
 c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(8): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
 c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(88): error C2683: 'dynamic_cast' : 'Transfert' n'est pas un type polymorphe
   c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\transfert.h(17): note: voir la déclaration de 'Transfert'
@@ -13,3 +20,11 @@ c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\m
 c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(213): error C2683: 'dynamic_cast' : 'Transfert' n'est pas un type polymorphe
   c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\transfert.h(17): note: voir la déclaration de 'Transfert'
 c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(224): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  transfert.cpp
+  TransfertInterac.cpp
+  TransfertPaypal.cpp
+  utilisateur.cpp
+  utilisateurPremium.cpp
+  utilisateurRegulier.cpp
+  Génération de code en cours...
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\transfert.cpp(45): error C4716: 'operator<<' : doit retourner une valeur

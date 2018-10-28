@@ -25,7 +25,7 @@ public :
 
 	// Methode d'affichage
 	// TODO
-	void print(ostream& os) const;
+	virtual void print(ostream& os) const;
 
 private : 
 	unsigned int joursRestants_;

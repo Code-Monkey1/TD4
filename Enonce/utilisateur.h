@@ -44,8 +44,8 @@ public:
 
 	Utilisateur& operator+=(Depense* depense);
 
-	// TODO
-	void print(ostream& os) const;
+	// Work in progress:
+	virtual void print(ostream& os) const = 0;
 	
 	// Methode d'affichage
 	friend ostream& operator<<(ostream& os, const Utilisateur& user);
