@@ -1,0 +1,15 @@
+﻿  main.cpp
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(8): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(88): error C2683: 'dynamic_cast' : 'Transfert' n'est pas un type polymorphe
+  c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\transfert.h(17): note: voir la déclaration de 'Transfert'
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(89): error C2683: 'dynamic_cast' : 'Transfert' n'est pas un type polymorphe
+  c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\transfert.h(17): note: voir la déclaration de 'Transfert'
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(210): error C2683: 'dynamic_cast' : 'Transfert' n'est pas un type polymorphe
+  c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\transfert.h(17): note: voir la déclaration de 'Transfert'
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(211): error C2683: 'dynamic_cast' : 'Transfert' n'est pas un type polymorphe
+  c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\transfert.h(17): note: voir la déclaration de 'Transfert'
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(212): error C2683: 'dynamic_cast' : 'Transfert' n'est pas un type polymorphe
+  c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\transfert.h(17): note: voir la déclaration de 'Transfert'
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(213): error C2683: 'dynamic_cast' : 'Transfert' n'est pas un type polymorphe
+  c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\transfert.h(17): note: voir la déclaration de 'Transfert'
+c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(224): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
