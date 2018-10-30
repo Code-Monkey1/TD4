@@ -10,7 +10,7 @@ TransfertInterac::TransfertInterac(double montant, Utilisateur* expediteur, Util
 	: Transfert(montant, expediteur, receveur)
 {
 	//Initialise le courriel
-	courriel_ = expediteur->getCourriel();
+	courriel_ = receveur->getCourriel();
 }
 
 string TransfertInterac::getCourriel() const
