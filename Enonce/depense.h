@@ -15,9 +15,11 @@ using namespace std;
 class Depense {
 public:
 	// Constructeurs
-	Depense(const Depense& depense);
 	Depense(const string& nom = "", double montant = 0 , const string& lieu = "Montreal");
+	Depense(const Depense& depense);
 
+	//Destructeur
+	~Depense();
 
 	//Surcharge de l'opérateur d'affectation
 	Depense& operator=(const Depense& depense);
