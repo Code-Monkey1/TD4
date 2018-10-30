@@ -8,7 +8,21 @@
 
 // Constucteurs
 
-Depense::Depense(const string& nom, double montant, const string& lieu) {
+Depense::Depense(const string& nom, double montant, const string& lieu)
+	: nom_(nom), montant_(montant), lieu_(nullptr){
+	setLieu(lieu);
+}
+
+Depense::Depense(const Depense & depense)
+	: nom_(depense.nom_), montant_(depense.montant_), lieu_(depense.lieu_){
+}
+
+Depense & Depense::operator=(const Depense & depense)
+{
+	nom_ = depense.nom_;
+	montant_ = depense.montant_;
+	lieu_ = depense.lieu_;
+	return *this;
 }
 
 
