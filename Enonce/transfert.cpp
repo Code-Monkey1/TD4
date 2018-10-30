@@ -43,10 +43,19 @@ void Transfert::setReceveur(Utilisateur *receveur) {
 void Transfert::effectuerTransfert()
 {
 	//Work in progress
-	expediteur_->modifierBalanceFrais(getFraisTransfert());
+	if (typeid(*expediteur_) != typeid(UtilisateurPremium))
+	{
+		expediteur_->modifierBalanceFrais(getFraisTransfert());
+	}
+	else
+	{
+		double retour = montant_ * TAUX_EPARGNE;
+		expediteur_->modifierBalanceFrais(retour);
+	}
 	expediteur_->modifierBalanceTranferts(montant_);
 	receveur_->modifierBalanceTranferts(-montant_);
 }
+
 
 //Methode affichage
 ostream& operator<<(ostream& os, const Transfert& transfert) {

@@ -25,7 +25,8 @@ public:
 	Utilisateur* getReceveur() const;
 	double getMontant() const;
 
-	//getFraisTransfert() est une fonction virtuelle pure, car un transfert est soit un transfert paypal, soit un transfert interact, jamais juste un transfert.
+	//getFraisTransfert() est une fonction virtuelle pure,
+	//car un transfert est soit un transfert paypal, soit un transfert interact, jamais juste un transfert.
 	virtual double getFraisTransfert() const = 0; 
 
 	// Méthodes d'affichage
