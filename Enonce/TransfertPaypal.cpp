@@ -9,6 +9,8 @@
 TransfertPaypal::TransfertPaypal(double montant, Utilisateur * expediteur, Utilisateur * receveur)
 	: Transfert(montant, expediteur, receveur)
 {
+	//Initialise id paypal
+	id_ = expediteur->getIdPaypal();
 }
 
 string TransfertPaypal::getId() const
@@ -23,9 +25,9 @@ void TransfertPaypal::setId(string id)
 
 double TransfertPaypal::getFraisTransfert() const
 {
-	double fraisTransfert = COMMISSION*montant_ + FRAIS;	//Frais de base pour les utilisateurs réguliers
+	double fraisTransfert = COMMISSION*montant_ + FRAIS;	//Frais pour les utilisateurs réguliers
 	if (typeid(*expediteur_) == typeid(UtilisateurPremium)) {
-		fraisTransfert -= FRAIS;	//Les utilisateurs premium ont juste besoin de payer la commission.
+		fraisTransfert = 0;	//Pas de frais pour les utilisateurs premium
 	}
 	return fraisTransfert;
 }
