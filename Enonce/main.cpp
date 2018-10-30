@@ -137,7 +137,7 @@ int main() {
 
 	/*
 	* Groupe
-	
+	*/
 
 	// Test 12: ajout d'un utilisateur premium
 	*groupe1 += up1;
@@ -226,7 +226,7 @@ int main() {
 		&& groupe1->getUtilisateurs()[4]->getBalance() == 0);
 	tests.push_back(groupe1->getUtilisateurs()[5]->getTotalATransferer() == 40
 		&& groupe1->getUtilisateurs()[5]->getBalance() == 2);
-		*/
+		
 	// Affichage des tests
 	cout << "TESTS" << endl;
 	for (unsigned int i = 0; i < tests.size(); i++)
@@ -239,9 +239,9 @@ int main() {
 	}
 
 	// Test des methodes d'affichage
-//	cout << *groupe1;
+	cout << *groupe1;
 
 	// TODO: Liberation de la memoire si nécessaire
-	system("pause");
+	//system("pause");
 	return 0;
 }

@@ -72,3 +72,11 @@ TD4_Projet/.vs/TD4_Projet/v15/.suo
 =======
 TD4_Projet/.vs/TD4_Projet/v15/.suo
 >>>>>>> master
+*.tlog
+*.log
+*.ipch
+TD4_Projet/Debug/TD4_Projet.tlog/unsuccessfulbuild
+*.idb
+*.pdb
+TD4_Projet/.vs/TD4_Projet/v15/.suo
+*.tlog

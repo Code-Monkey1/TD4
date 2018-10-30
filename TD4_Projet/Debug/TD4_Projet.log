@@ -1,9 +1,6 @@
 ﻿  TransfertInterac.cpp
-  TransfertPaypal.cpp
   main.cpp
 c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(8): warning C4067: jetons inattendus après la directive du préprocesseur - saut de ligne attendu
-c:\users\raph\documents\polytechnique\programmation orientée objet\td4\enonce\main.cpp(224): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  transfert.cpp
   Génération de code en cours...
-main.obj : error LNK2019: symbole externe non rÚsolu "public: class Groupe & __thiscall Groupe::ajouterDepense(double,class Utilisateur *,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &,class std::basic_string<char,struct std::char_traits<char>,class std::allocator<char> > const &)" (?ajouterDepense@Groupe@@QAEAAV1@NPAVUtilisateur@@ABV?$basic_string@DU?$char_traits@D@std@@V?$allocator@D@2@@std@@1@Z) rÚfÚrencÚ dans la fonction _main
-main.obj : error LNK2019: symbole externe non rÚsolu "public: class Groupe & __thiscall Groupe::operator+=(class Utilisateur *)" (??YGroupe@@QAEAAV0@PAVUtilisateur@@@Z) rÚfÚrencÚ dans la fonction _main
-C:\Users\RAPH\Documents\Polytechnique\Programmation orientÚe objet\TD4\TD4_Projet\Debug\TD4_Projet.exe : fatal error LNK1120: 2 externes non rÚsolus
+  TD4_Projet.vcxproj -> C:\Users\RAPH\Documents\Polytechnique\Programmation orientée objet\TD4\TD4_Projet\Debug\TD4_Projet.exe
