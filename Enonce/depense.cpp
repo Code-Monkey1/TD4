@@ -7,24 +7,31 @@
 #include "depense.h"
 
 // Constucteurs
-
 Depense::Depense(const string& nom, double montant, const string& lieu)
-	: nom_(nom), montant_(montant), lieu_(nullptr){
-	setLieu(lieu);
+	: nom_(nom), montant_(montant), lieu_(new string(lieu)){
 }
 
 Depense::Depense(const Depense & depense)
-	: nom_(depense.nom_), montant_(depense.montant_), lieu_(depense.lieu_){
+	: nom_(depense.nom_), montant_(depense.montant_), lieu_(new string(*depense.lieu_)){
 }
 
+//Destructeur
+Depense::~Depense() {
+	delete lieu_;
+	lieu_ = nullptr;
+}
+
+//Surcharge de l'opérateur d'affectation
 Depense & Depense::operator=(const Depense & depense)
 {
+	if (this != &depense) {
 	nom_ = depense.nom_;
 	montant_ = depense.montant_;
-	lieu_ = depense.lieu_;
+	delete lieu_;
+	lieu_ = new string(*depense.lieu_);
+	}
 	return *this;
 }
-
 
 // Methodes d'acces
 string Depense::getNom() const {
@@ -51,7 +58,8 @@ void Depense::setMontant(double montant) {
 
 void Depense::setLieu(const string& nom)
 {
-	*lieu_ = nom;
+	delete lieu_;
+	lieu_ = new string(nom);
 }
 
 // Methode d'affichage
