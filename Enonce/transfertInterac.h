@@ -19,8 +19,7 @@ public:
 	string getCourriel() const;
 	void setcourriel(string courriel);
 
-	// TODO
-	double getFraisTransfert() const;
+	virtual double getFraisTransfert() const;
 private:
 	string courriel_;
 };

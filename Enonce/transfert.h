@@ -24,15 +24,15 @@ public:
 	Utilisateur* getExpediteur() const;
 	Utilisateur* getReceveur() const;
 	double getMontant() const;
-	// TODO
-	double getFraisTransfert() const;
+
+	//getFraisTransfert() est une fonction virtuelle pure, car un transfert est soit un transfert paypal, soit un transfert interact, jamais juste un transfert.
+	virtual double getFraisTransfert() const = 0; 
 
 	// Méthodes d'affichage
 	void setMontant(double montant);
 	void setExpediteur(Utilisateur* expediteur);
 	void setReceveur(Utilisateur* receveur);
 
-	// TODO
 	void effectuerTransfert();
 
 	friend ostream& operator<<(ostream& os, const Transfert& transfert);

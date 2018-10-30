@@ -40,6 +40,16 @@ void Transfert::setReceveur(Utilisateur *receveur) {
 	receveur_ = receveur;
 }
 
+void Transfert::effectuerTransfert()
+{
+	//Work in progress
+	expediteur_->modifierBalanceFrais(getFraisTransfert());
+	expediteur_->modifierBalanceTranferts(montant_);
+	receveur_->modifierBalanceTranferts(-montant_);
+}
+
 //Methode affichage
 ostream& operator<<(ostream& os, const Transfert& transfert) {
+	//TODO:
+	return os;
 }

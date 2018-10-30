@@ -20,3 +20,12 @@ void TransfertInterac::setcourriel(string courriel)
 {
 	courriel_ = courriel;
 }
+
+double TransfertInterac::getFraisTransfert() const
+{
+	double fraisTransfert = FRAIS_TRANSFERT;	//Frais de base pour les utilisateurs réguliers
+	if (typeid(*expediteur_) == typeid(UtilisateurPremium)) {
+		fraisTransfert = -montant_* TAUX_EPARGNE;	//Les utilisateurs premium perçoivent un retour d'un certain pourcentage sur le montant transféré
+	}
+	return fraisTransfert;
+}

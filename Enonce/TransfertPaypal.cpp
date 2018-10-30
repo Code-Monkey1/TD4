@@ -21,3 +21,12 @@ void TransfertPaypal::setId(string id)
 	id_ = id;
 }
 
+double TransfertPaypal::getFraisTransfert() const
+{
+	double fraisTransfert = COMMISSION*montant_ + FRAIS;	//Frais de base pour les utilisateurs réguliers
+	if (typeid(*expediteur_) == typeid(UtilisateurPremium)) {
+		fraisTransfert -= FRAIS;	//Les utilisateurs premium ont juste besoin de payer la commission.
+	}
+	return fraisTransfert;
+}
+
