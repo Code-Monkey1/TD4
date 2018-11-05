@@ -52,7 +52,7 @@ private:
 	vector<Utilisateur*> utilisateurs_;
 	vector<Depense*> depenses_;
 	vector<Transfert*> transferts_;
-	vector<double> comptes_; 
+	vector<double> comptes_;
 };
 
 #endif

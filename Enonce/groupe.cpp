@@ -68,7 +68,7 @@ Groupe & Groupe::ajouterDepense(double montant, Utilisateur * payePar, const str
 		}
 	}
 
-	if (utilDansGroupe = true) {
+	if (utilDansGroupe == true) {
 		//Le depense est creee et ajoutee au groupe.
 		Depense* nouvDepense = new Depense(nom, montant, lieu);
 		depenses_.push_back(nouvDepense);
@@ -77,7 +77,7 @@ Groupe & Groupe::ajouterDepense(double montant, Utilisateur * payePar, const str
 		for (unsigned int i = 0; i < utilisateurs_.size(); i++) {
 			// Le compte de l'utilisateur qui a paye la depense augmente du montant de la depense.
 			if (utilisateurs_[i]->getNom() == payePar->getNom())
-				comptes_[i] = comptes_[i] + montant;
+				comptes_[i] = comptes_[i] + montant - (montant / utilisateurs_.size());
 			// Les comptes des utilisateurs qui n'ont pas paye la depense diminuent du montant de la depense divise par le nombre d'utilisateurs dans le groupe.
 			else
 				comptes_[i] = comptes_[i] - (montant / utilisateurs_.size());
@@ -107,6 +107,10 @@ Groupe & Groupe::operator+=(Utilisateur * utilisateur)
 			if (utilisateur->getJoursRestants() > 0) {
 				utilisateurs_.push_back(utilisateur);
 				comptes_.push_back(0);
+				if (typeid(*utilisateur) == typeid(UtilisateurRegulier)) {
+					UtilisateurRegulier* pointeurUtilReg = dynamic_cast<UtilisateurRegulier*>(utilisateur);
+					pointeurUtilReg->setPossedeGroupe(true);
+				}
 			}
 			else
 			{
@@ -131,7 +135,7 @@ void Groupe::equilibrerComptes() {
 
 	bool calcul = true;
 	unsigned int count = 0;
-	while (calcul) {
+	while (calcul == true) {
 		double max = 0;
 		double min = 0;
 		int indexMax = 0;

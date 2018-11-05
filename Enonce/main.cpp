@@ -175,7 +175,6 @@ int main() {
 
 	groupe1->ajouterDepense(180, up1, "d1")
 		.ajouterDepense(50, up2, "d2 - impossible");
-
 	// Test 17: ajout de depense avec utilisateur hors du groupe
 	tests.push_back(groupe1->getDepenses().size() == 1);
 
