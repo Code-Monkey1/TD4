@@ -14,6 +14,14 @@ Transfert::Transfert(double montant, Utilisateur* expediteur, Utilisateur* recev
 	montant_(montant), expediteur_(expediteur), receveur_(receveur) {
 }
 
+Transfert::~Transfert()
+{
+	delete expediteur_;
+	expediteur_ = nullptr;
+	delete receveur_;
+	receveur_ = nullptr;
+}
+
 // Methodes d'acces
 double Transfert::getMontant() const {
 	return montant_;

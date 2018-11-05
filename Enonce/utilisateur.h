@@ -23,6 +23,7 @@ public:
 	// Constructeurs
 	Utilisateur();
 	Utilisateur(const string& nom = "", MethodePaiement methodePaiement = Interac, const string& courriel = "", const string& idPaypal= "");
+	~Utilisateur();
 
 	// Methodes d'accès
 	string getNom() const;
@@ -32,6 +33,8 @@ public:
 	MethodePaiement getMethodePaiement() const;
 	double getTotalATransferer() const;
 	double getBalance() const;
+	virtual bool getPossedeGroupe() const;
+	virtual unsigned int getJoursRestants() const;
 
 	// Methodes de modification
 	void setNom(const string& nom);
@@ -44,7 +47,7 @@ public:
 
 	Utilisateur& operator+=(Depense* depense);
 
-	// Work in progress:
+	// Utilisateur est une classe abstraite. On déclare une fonction virtuelle pure. 
 	virtual void print(ostream& os) const = 0;
 	
 	// Methode d'affichage

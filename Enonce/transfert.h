@@ -19,6 +19,7 @@ public:
 	// Constructeurs
 	Transfert();
 	Transfert(double montant, Utilisateur* expediteur, Utilisateur* receveur_);
+	~Transfert();
 
 	// Méthodes d'accès
 	Utilisateur* getExpediteur() const;

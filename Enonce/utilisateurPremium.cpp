@@ -16,6 +16,10 @@ unsigned int UtilisateurPremium::getJoursRestants() const {
 	return joursRestants_;
 }
 
+bool UtilisateurPremium::getPossedeGroupe() const {
+	return false;
+}
+
 void UtilisateurPremium::setJoursRestants(unsigned int joursRestants) {
 	joursRestants_ = joursRestants;
 }

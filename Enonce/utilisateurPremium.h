@@ -18,7 +18,8 @@ public :
 	UtilisateurPremium(const string& nom = "", MethodePaiement methodePaiement = Interac, unsigned int joursRestants = 0, const string& courriel = "", const string& idPaypal = "");
 
 	// Methodes d'acces
-	unsigned int getJoursRestants() const; 
+	virtual unsigned int getJoursRestants() const;
+	virtual bool getPossedeGroupe() const;
 
 	// Methodes de modifications
 	void setJoursRestants(unsigned int joursRestants); 

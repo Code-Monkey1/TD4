@@ -15,6 +15,10 @@ bool UtilisateurRegulier::getPossedeGroupe() const {
 	return possedeGroupe_;
 }
 
+unsigned int UtilisateurRegulier::getJoursRestants() const {
+	return 1;
+}
+
 void UtilisateurRegulier::setPossedeGroupe(bool possedeGroupe) {
 	possedeGroupe_ = possedeGroupe;
 }

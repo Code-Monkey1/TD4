@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #4 - groupe.h
-* Date: 19 octobre 2018
-* Auteur: Wassim Khene & Ryan Hardie
+* Date: 5 novembre 2018
+* Auteur: Jules Lefebvre et Raphael Geoffrion
 *******************************************/
 
 #ifndef GROUPE_H
@@ -23,6 +23,7 @@ public:
 	// Constructeurs
 	Groupe();
 	Groupe(const string& nom);
+	~Groupe();
 
 	// Methodes d'acces
 	string getNom() const;
@@ -36,13 +37,11 @@ public:
 	void setNom(const string& nom);
 
 	// Methodes d'ajout
-	// TODO
 	Groupe& ajouterDepense(double montant, Utilisateur* payePar, const string& nom = "", const string& lieu = "Montreal");
-	// TODO
+	
 	Groupe& operator+=(Utilisateur* utilisateur);
 
-	// Methodes de calcul
-	// TODO
+	// Methode de calcul
 	void equilibrerComptes();
 
 	// Methode d'affichage

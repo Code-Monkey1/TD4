@@ -4,8 +4,14 @@
 * Auteur: Wassim Khene & Ryan Hardie
 *******************************************/
 
+// Questions
+// 1.
+// 2.
+// 3. 
+// 4. On ne peut pas instancier un objet de type Transfert, car Transfert est une classe abstraite (interface). Elle est une classe abstraite, car elle a une fonction virtuelle pure: la fonction getFraisTransfert(). Ceci est logique, car on ne peut pas déterminer les frais du transfert sans savoir si c'est un transfert Paypal ou un transfert Interact. En d'autres mots, un transfert doit être un transfert Paypal ou un transfert Interact.
+
 #include <iostream>
-#include "depense.h";
+#include "depense.h"
 #include "utilisateur.h"
 #include "transfert.h"
 #include "groupe.h"
@@ -35,8 +41,8 @@ int main() {
 	transferts.push_back(new TransfertPaypal(150, ur2, up3));
 	transferts.push_back(new TransfertInterac(300, ur3, ur4));
 
-	//Groupe* groupe1 = new Groupe("Madrid");
-	//Groupe* groupe2 = new Groupe("Collocation");
+	Groupe* groupe1 = new Groupe("Madrid");
+	Groupe* groupe2 = new Groupe("Collocation");
 
 	/*
 	* Tests
@@ -241,7 +247,24 @@ int main() {
 	// Test des methodes d'affichage
 	cout << *groupe1;
 
-	// TODO: Liberation de la memoire si nécessaire
+	// Liberation de la memoire
+	delete d1;
+	delete d2;
+
+	delete ur1;
+	delete ur2;
+	delete ur3;
+	delete ur4;
+
+	delete up1;
+	delete up2;
+	delete up3;
+	delete up4;
+	delete uptest;
+
+	delete groupe1;
+	delete groupe2;
+
 	//system("pause");
 	return 0;
 }

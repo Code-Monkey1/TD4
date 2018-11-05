@@ -20,6 +20,10 @@ Utilisateur::Utilisateur(const string& nom, MethodePaiement methodePaiement,
 	balanceTransferts_(0)
 {}
 
+Utilisateur::~Utilisateur()
+{
+}
+
 // Methodes d'acces
 string Utilisateur::getNom() const {
 	return nom_;
@@ -52,6 +56,16 @@ string Utilisateur::getIdPaypal() const
 MethodePaiement Utilisateur::getMethodePaiement() const
 {
 	return methodePaiement_;
+}
+
+bool Utilisateur::getPossedeGroupe() const
+{
+	return false;
+}
+
+unsigned int Utilisateur::getJoursRestants() const
+{
+	return 1;
 }
 
 //Methodes de modification

@@ -1,7 +1,7 @@
 /********************************************
 * Titre: Travail pratique #4 - groupe.cpp
-* Date: 19 octobre 2018
-* Auteur: Wassim Khene & Ryan Hardie
+* Date: 5 novembre 2018
+* Auteur: Jules Lefebvre et Raphael Geoffrion
 *******************************************/
 
 #include "groupe.h"
@@ -13,6 +13,10 @@ Groupe::Groupe() {
 }
 
 Groupe::Groupe(const string& nom) : nom_(nom) {
+}
+
+Groupe::~Groupe()
+{
 }
 
 // Methodes d'acces
@@ -53,6 +57,71 @@ void Groupe::setNom(const string& nom) {
 	nom_ = nom;
 }
 
+
+Groupe & Groupe::ajouterDepense(double montant, Utilisateur * payePar, const string & nom, const string & lieu)
+{
+	//Verifie que l'utilisateur qui a paye fait parti du groupe
+	bool utilDansGroupe = false;
+	for (int i = 0; i < utilisateurs_.size(); i++) {
+		if (utilisateurs_[i]->getNom() == payePar->getNom()){
+			utilDansGroupe = true;
+		}
+	}
+
+	if (utilDansGroupe = true) {
+		//Le depense est creee et ajoutee au groupe.
+		Depense* nouvDepense = new Depense(nom, montant, lieu);
+		depenses_.push_back(nouvDepense);
+		
+		//Les comptes de chaque utilisateurs sont mis a jour.
+		for (int i = 0; i < utilisateurs_.size(); i++) {
+			// Le compte de l'utilisateur qui a paye la depense augmente du montant de la depense.
+			if (utilisateurs_[i]->getNom() == payePar->getNom())
+				comptes_[i] = comptes_[i] + montant;
+			// Les comptes des utilisateurs qui n'ont pas paye la depense diminuent du montant de la depense divise par le nombre d'utilisateurs dans le groupe.
+			else
+				comptes_[i] = comptes_[i] - (montant / utilisateurs_.size());
+		}
+	}
+	
+	return *this; //Retourne une reference au groupe pour les appels en cascade.
+}
+
+Groupe & Groupe::operator+=(Utilisateur * utilisateur)
+{
+	// Verifie si l'utilisateur est deja dans le groupe.
+	bool estDansGroupe = false;
+	for (int i = 0; i < utilisateurs_.size(); i++) {
+		if (utilisateurs_[i] == utilisateur)
+			estDansGroupe = true;
+	}
+	
+	if (estDansGroupe == false) {
+		// Appartenance a un groupe (regulier).
+		if (utilisateur->getPossedeGroupe() == false) {
+			// Validite de l'abonnement (premium)
+			if (utilisateur->getJoursRestants() > 0) {
+				utilisateurs_.push_back(utilisateur);
+			}
+			else
+			{
+				cout << "Erreur : l'utilisateur " << utilisateur->getNom() << " doit renouveler son abonnement premium.";
+			}
+		}
+		else
+		{
+			cout << "Erreur : l'utilisateur " << utilisateur->getNom() << " n'est pas un utilisateur premium et est deja dans un groupe.";
+		}
+	}
+	else {
+		cout << "Erreur : l'utilisateur " << utilisateur->getNom() << " fait déjà parti du groupe.";
+	}
+	
+	return *this; //Retourne une reference au groupe pour les appels en cascade.
+}
+
+// Methode de calcul
+
 void Groupe::equilibrerComptes() {
 
 	bool calcul = true;
@@ -78,11 +147,23 @@ void Groupe::equilibrerComptes() {
 		// On cherche lequel des deux a la dette la plus grande
 		if (-min <= max && min != 0 && max != 0) {
 			// Faire le transfert  du bon type
+			switch (utilisateurs_[indexMin]->getMethodePaiement()) {
+				case Paypal:
+					transferts_.push_back(new TransfertPaypal(-min,		utilisateurs_[indexMin], utilisateurs_[indexMax]));
+				case Interac:
+					transferts_.push_back(new TransfertInterac(-min,	utilisateurs_[indexMin], utilisateurs_[indexMax]));
+			}
 			comptes_[indexMax] += min;
 			comptes_[indexMin] = 0;
 		}
 		else if (-min > max  && min != 0 && max != 0) {
 			// Faire le transfert du bon type
+			switch (utilisateurs_[indexMin]->getMethodePaiement()) {
+			case Paypal:
+				transferts_.push_back(new TransfertPaypal(max, utilisateurs_[indexMin], utilisateurs_[indexMax]));
+			case Interac:
+				transferts_.push_back(new TransfertInterac(max, utilisateurs_[indexMin], utilisateurs_[indexMax]));
+			}
 			comptes_[indexMax] = 0;
 			comptes_[indexMin] += max;
 		}
@@ -97,6 +178,8 @@ void Groupe::equilibrerComptes() {
 		}
 	}
 
+	for (int i = 0; i < transferts_.size(); i++)
+		transferts_[i]->effectuerTransfert();
 }
 
 // Methode d'affichage

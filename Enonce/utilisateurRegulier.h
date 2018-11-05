@@ -16,8 +16,9 @@ public :
 		const string& idPaypal = "");
 
 	// Methode d'acces 
-	bool getPossedeGroupe() const; 
-	 
+	virtual bool getPossedeGroupe() const; 
+	virtual unsigned int getJoursRestants() const;
+
 	// Methodes de modifications
 	void setPossedeGroupe(bool etat); 
 		
