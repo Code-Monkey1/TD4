@@ -1,13 +1,13 @@
 /********************************************
 * Titre: Travail pratique #4 - main.cpp
-* Date: 19 octobre 2018
-* Auteur: Wassim Khene & Ryan Hardie
+* Date: 5 novembre 2018
+* Auteur: Jules Lefebvre & Rapheal Geoffrion
 *******************************************/
 
-// Questions
-// 1.
-// 2.
-// 3. 
+// RÉPONSES AUX QUESTIONS
+// 1. 2
+// 2. On fait appel à la fonction f() à partir de v[0] qui est un pointeur à un objet de la classe B dans laquelle la fonction f() a été redéfinie.
+// 3. En utilisant dynamic_cast<B*> pour spécifier qu'on veut la méthode B::f(). En effacant la définition de f() dans la classe C.
 // 4. On ne peut pas instancier un objet de type Transfert, car Transfert est une classe abstraite (interface). Elle est une classe abstraite, car elle a une fonction virtuelle pure: la fonction getFraisTransfert(). Ceci est logique, car on ne peut pas déterminer les frais du transfert sans savoir si c'est un transfert Paypal ou un transfert Interact. En d'autres mots, un transfert doit être un transfert Paypal ou un transfert Interact.
 
 #include <iostream>
