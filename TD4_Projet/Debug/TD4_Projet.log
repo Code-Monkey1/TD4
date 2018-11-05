@@ -1,1 +1,3 @@
-﻿  TD4_Projet.vcxproj -> C:\Users\Jules\source\repos\TD4\TD4_Projet\Debug\TD4_Projet.exe
+﻿  main.cpp
+c:\users\jules\source\repos\td4\enonce\main.cpp(230): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  TD4_Projet.vcxproj -> C:\Users\Jules\source\repos\TD4\TD4_Projet\Debug\TD4_Projet.exe

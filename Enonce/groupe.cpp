@@ -46,7 +46,7 @@ vector<double> Groupe::getComptes() const
 
 double Groupe::getTotalDepenses() const {
 	double totalDepenses = 0;
-	for (int i = 0; i < depenses_.size(); i++) {
+	for (unsigned int i = 0; i < depenses_.size(); i++) {
 		totalDepenses += depenses_[i]->getMontant();
 	}
 	return totalDepenses;
@@ -62,7 +62,7 @@ Groupe & Groupe::ajouterDepense(double montant, Utilisateur * payePar, const str
 {
 	//Verifie que l'utilisateur qui a paye fait parti du groupe
 	bool utilDansGroupe = false;
-	for (int i = 0; i < utilisateurs_.size(); i++) {
+	for (unsigned int i = 0; i < utilisateurs_.size(); i++) {
 		if (utilisateurs_[i]->getNom() == payePar->getNom()){
 			utilDansGroupe = true;
 		}
@@ -74,7 +74,7 @@ Groupe & Groupe::ajouterDepense(double montant, Utilisateur * payePar, const str
 		depenses_.push_back(nouvDepense);
 		
 		//Les comptes de chaque utilisateurs sont mis a jour.
-		for (int i = 0; i < utilisateurs_.size(); i++) {
+		for (unsigned int i = 0; i < utilisateurs_.size(); i++) {
 			// Le compte de l'utilisateur qui a paye la depense augmente du montant de la depense.
 			if (utilisateurs_[i]->getNom() == payePar->getNom())
 				comptes_[i] = comptes_[i] + montant;
@@ -82,6 +82,10 @@ Groupe & Groupe::ajouterDepense(double montant, Utilisateur * payePar, const str
 			else
 				comptes_[i] = comptes_[i] - (montant / utilisateurs_.size());
 		}
+	}
+	else
+	{
+		cout << "L'utilisateur qui a paye la depense " << nom << "ne fait pas partie du groupe " << this->getNom() << "." << endl;
 	}
 	
 	return *this; //Retourne une reference au groupe pour les appels en cascade.
@@ -91,7 +95,7 @@ Groupe & Groupe::operator+=(Utilisateur * utilisateur)
 {
 	// Verifie si l'utilisateur est deja dans le groupe.
 	bool estDansGroupe = false;
-	for (int i = 0; i < utilisateurs_.size(); i++) {
+	for (unsigned int i = 0; i < utilisateurs_.size(); i++) {
 		if (utilisateurs_[i] == utilisateur)
 			estDansGroupe = true;
 	}
@@ -102,19 +106,20 @@ Groupe & Groupe::operator+=(Utilisateur * utilisateur)
 			// Validite de l'abonnement (premium)
 			if (utilisateur->getJoursRestants() > 0) {
 				utilisateurs_.push_back(utilisateur);
+				comptes_.push_back(0);
 			}
 			else
 			{
-				cout << "Erreur : l'utilisateur " << utilisateur->getNom() << " doit renouveler son abonnement premium.";
+				cout << "Erreur : l'utilisateur " << utilisateur->getNom() << " doit renouveler son abonnement premium."<< endl;
 			}
 		}
 		else
 		{
-			cout << "Erreur : l'utilisateur " << utilisateur->getNom() << " n'est pas un utilisateur premium et est deja dans un groupe.";
+			cout << "Erreur : l'utilisateur " << utilisateur->getNom() << " n'est pas un utilisateur premium et est deja dans un groupe." << endl;
 		}
 	}
 	else {
-		cout << "Erreur : l'utilisateur " << utilisateur->getNom() << " fait déjà parti du groupe.";
+		cout << "Erreur : l'utilisateur " << utilisateur->getNom() << " fait déjà parti du groupe." << endl;
 	}
 	
 	return *this; //Retourne une reference au groupe pour les appels en cascade.
@@ -125,7 +130,7 @@ Groupe & Groupe::operator+=(Utilisateur * utilisateur)
 void Groupe::equilibrerComptes() {
 
 	bool calcul = true;
-	int count = 0;
+	unsigned int count = 0;
 	while (calcul) {
 		double max = 0;
 		double min = 0;
@@ -133,7 +138,7 @@ void Groupe::equilibrerComptes() {
 		int indexMin = 0;
 
 		// On cherche le compte le plus eleve et le moins eleve
-		for (int i = 0; i < utilisateurs_.size(); i++) {
+		for (unsigned int i = 0; i < utilisateurs_.size(); i++) {
 			if (comptes_[i] > max) {
 				max = comptes_[i];
 				indexMax = i;
@@ -186,19 +191,19 @@ void Groupe::equilibrerComptes() {
 ostream & operator<<(ostream& os, const Groupe& groupe)
 {
 	os << "\nGroupe " << groupe.nom_ << ".\nCout total: " << groupe.getTotalDepenses() << "$ \nUtilisateurs:    \n\n";
-	for (int i = 0; i < groupe.utilisateurs_.size(); i++) {
+	for (unsigned int i = 0; i < groupe.utilisateurs_.size(); i++) {
 		os <<"\t- " << *groupe.utilisateurs_[i];
 	}
 	os << endl;
 
 	if (groupe.transferts_.size() != 0) {
 		os << "Transferts :" << endl;
-		for (int i = 0; i < groupe.transferts_.size(); i++)
+		for (unsigned int i = 0; i < groupe.transferts_.size(); i++)
 			os << "\t" << *(groupe.transferts_[i]);
 	}
 	else {
 		os << "Les comptes ne sont pas equilibres" << endl << endl;
-		for (int i = 0; i < groupe.comptes_.size(); i++) {
+		for (unsigned int i = 0; i < groupe.comptes_.size(); i++) {
 			os << groupe.utilisateurs_[i]->getNom() << " : " << groupe.comptes_[i] << endl;
 		}
 	}

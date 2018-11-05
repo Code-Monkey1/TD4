@@ -265,6 +265,6 @@ int main() {
 	delete groupe1;
 	delete groupe2;
 
-	//system("pause");
+	system("pause");
 	return 0;
 }
